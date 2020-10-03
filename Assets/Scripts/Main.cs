@@ -11,7 +11,8 @@ public class Main : MonoBehaviour
     public float levelDuration;
     public float levelBeatsCount;
     public int currentBeat;
-    public int loopAfterBeat;
+    public int currentBeatTotal;
+    public int loopDuration;
 
     public static float pixelToSecondsRate;
 
@@ -43,7 +44,8 @@ public class Main : MonoBehaviour
         pixelToSecondsRate = levelDuration * 4.0f;
         levelBeatsCount = levelDuration * pixelToSecondsRate / tileSize;
         currentBeat = 0;
-        loopAfterBeat = 4;
+        currentBeatTotal = 0;
+        loopDuration = 4;
 
         initialBarPosition = bar.transform.position;
 
@@ -113,8 +115,9 @@ public class Main : MonoBehaviour
             player.GetComponent<RememberMe>().PleaseRememberMe();
         }
 
-        currentBeat = Convert.ToInt32(levelCurrentTimestamp * pixelToSecondsRate / tileSize) % loopAfterBeat;
-        bar.transform.position = initialBarPosition + new Vector2((levelCurrentTimestamp * pixelToSecondsRate) % (loopAfterBeat * tileSize), 0);
+        currentBeat = Convert.ToInt32(levelCurrentTimestamp * pixelToSecondsRate / tileSize) % loopDuration;
+        currentBeatTotal = Convert.ToInt32(levelCurrentTimestamp * pixelToSecondsRate / tileSize);
+        bar.transform.position = initialBarPosition + new Vector2((levelCurrentTimestamp * pixelToSecondsRate) % (loopDuration * tileSize), 0);
 
     }
 

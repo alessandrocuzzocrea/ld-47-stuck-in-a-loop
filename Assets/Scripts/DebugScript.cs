@@ -33,5 +33,9 @@ public class DebugScript : MonoBehaviour
         GUI.Label(new Rect(150, 0, 400, 20), "Level ended: " + main.levelEnded);
         GUI.Label(new Rect(150, 10, 400, 20), "Current instrument: " + main.currentInstrument);
         GUI.Label(new Rect(150, 20, 400, 20), "Level: " + main.currentLevel);
+        GUI.Label(new Rect(150, 30, 400, 20), "Timestamp: " + main.levelCurrentTimestamp);
+        GUI.Label(new Rect(150, 40, 400, 20), "BeatCount: " + main.levelBeatsCount);
+        GUI.Label(new Rect(150, 50, 400, 20), "currentBeat: " + main.currentBeat + " / " + main.loopDuration);
+        GUI.Label(new Rect(150, 60, 400, 20), "currentBeatTotal: " + main.currentBeatTotal + " / " + main.levelBeatsCount);
     }
 }
