@@ -52,6 +52,8 @@ public class Main : MonoBehaviour
         if (buffered3 != Note.NoteType.NotSet) HandleNote(buffered3);
         if (buffered4 != Note.NoteType.NotSet) HandleNote(buffered4);
 
+        buffered1 = buffered2 = buffered3 = buffered4 = Note.NoteType.NotSet;
+
         if (levelCurrentTimestamp >= levelDuration)
         {
             levelCurrentTimestamp = 0.0f;
@@ -75,6 +77,11 @@ public class Main : MonoBehaviour
         if (note == Note.NoteType.Walk)
         {
             player.Walk();
+        }
+
+        if (note == Note.NoteType.Jump)
+        {
+            player.Jump();
         }
     }
 
