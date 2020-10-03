@@ -5,7 +5,6 @@ using UnityEngine;
 public class DebugScript : MonoBehaviour
 {
     public Main main;
-    public Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +32,6 @@ public class DebugScript : MonoBehaviour
 
         GUI.Label(new Rect(150, 0, 400, 20), "Level ended: " + main.levelEnded);
         GUI.Label(new Rect(150, 10, 400, 20), "Current instrument: " + main.currentInstrument);
+        GUI.Label(new Rect(150, 20, 400, 20), "Level: " + main.currentLevel);
     }
 }

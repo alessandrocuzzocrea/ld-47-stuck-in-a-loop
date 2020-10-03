@@ -26,6 +26,10 @@ public class Main : MonoBehaviour
     // UI
     public Note.NoteType currentInstrument;
 
+    // Levels
+    public GameObject[] levels;
+    public int currentLevel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +41,19 @@ public class Main : MonoBehaviour
         initialBarPosition = bar.transform.position;
 
         currentInstrument = buffered1 = buffered2 = buffered3 = buffered4 = Note.NoteType.NotSet;
+
+        GameObject level = GameObject.Find("Level");
+        if (level == null)
+        {
+            level = Instantiate(levels[0]) as GameObject;
+        }
+
+        SetupLevel(level);
+    }
+
+    void SetupLevel(GameObject l)
+    {
+
     }
 
     // Update is called once per frame
