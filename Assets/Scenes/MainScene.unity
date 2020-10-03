@@ -258,6 +258,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907516f693c73fe4aadf2702c2d18eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1644652482}
+  levelCurrentTimestamp: 0
+  levelDuration: 0
+  levelBeatsCount: 0
 --- !u!4 &167121392
 Transform:
   m_ObjectHideFlags: 0
@@ -1161,6 +1165,7 @@ GameObject:
   - component: {fileID: 1644652480}
   - component: {fileID: 1644652483}
   - component: {fileID: 1644652482}
+  - component: {fileID: 1644652484}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1270,6 +1275,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16, y: 32}
   m_EdgeRadius: 0
+--- !u!114 &1644652484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644652479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5ac7fe9d2ac8f43be580b1a21587c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1818931386
 GameObject:
   m_ObjectHideFlags: 0
