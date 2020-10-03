@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Main main;
+
     public bool isWalking;
     public bool isRunning;
     public bool isJumping;
@@ -107,5 +109,15 @@ public class Player : MonoBehaviour
     public void Jump()
     {
         isJumping = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Player collision with: " + collision.gameObject.gameObject.name);
+        //main.BufferNote(collision.gameObject.GetComponent<Note>());
+        if (collision.gameObject.GetComponent<Goal>() != null)
+        {
+            main.GoalReached();
+        }
     }
 }

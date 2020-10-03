@@ -21,12 +21,14 @@ public class Main : MonoBehaviour
     public Note.NoteType buffered3;
     public Note.NoteType buffered4;
 
+    public bool levelEnded;
+
     // Start is called before the first frame update
     void Start()
     {
         levelCurrentTimestamp = 0.0f;
         //levelDuration = 64.0f;
-        levelDuration = 8.0f;
+        levelDuration = 64.0f;
         levelBeatsCount = levelDuration;
 
         initialBarPosition = bar.transform.position;
@@ -42,7 +44,12 @@ public class Main : MonoBehaviour
 
     private void FixedUpdate()
     {
-    
+        if (levelEnded)
+        {
+            player.Stop();
+            return;
+        }
+
         // Advance time
         levelCurrentTimestamp += Time.deltaTime;
 
@@ -107,5 +114,10 @@ public class Main : MonoBehaviour
             buffered4 = n.noteType;
             return;
         }
+    }
+
+    public void GoalReached()
+    {
+        levelEnded = true;
     }
 }
