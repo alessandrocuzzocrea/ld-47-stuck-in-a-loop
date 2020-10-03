@@ -32,5 +32,6 @@ public class DebugScript : MonoBehaviour
         }
 
         GUI.Label(new Rect(150, 0, 400, 20), "Level ended: " + main.levelEnded);
+        GUI.Label(new Rect(150, 10, 400, 20), "Current instrument: " + main.currentInstrument);
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PianoRoll : MonoBehaviour
 {
+    public GameObject notePrefab;
+
     // Start is called before the first frame update
     void Start()
     {

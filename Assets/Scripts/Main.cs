@@ -23,23 +23,45 @@ public class Main : MonoBehaviour
 
     public bool levelEnded;
 
+    // UI
+    public Note.NoteType currentInstrument;
+
     // Start is called before the first frame update
     void Start()
     {
         levelCurrentTimestamp = 0.0f;
         //levelDuration = 64.0f;
-        levelDuration = 64.0f;
+        levelDuration = 8.0f;
         levelBeatsCount = levelDuration;
 
         initialBarPosition = bar.transform.position;
 
-        buffered1 = buffered2 = buffered3 = buffered4 = Note.NoteType.NotSet;
+        currentInstrument = buffered1 = buffered2 = buffered3 = buffered4 = Note.NoteType.NotSet;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero);
+
+            if (hit)
+            {
+                if (hit.collider.GetComponent<InstrumentButton>())
+                {
+                    InstrumentButton i = hit.collider.GetComponent<InstrumentButton>();
+                    currentInstrument = i.noteType;
+                }
+
+                if (hit.collider.GetComponent<Note>())
+                {
+                    Note n = hit.collider.GetComponent<Note>();
+                    n.setNoteType(currentInstrument);
+                }
+            }
+        }
     }
 
     private void FixedUpdate()

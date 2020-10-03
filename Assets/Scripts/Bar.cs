@@ -20,7 +20,11 @@ public class Bar : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Bar collision with: " + collision.gameObject.gameObject.name);
-        main.BufferNote(collision.gameObject.GetComponent<Note>());
+        //Debug.Log("Bar collision with: " + collision.gameObject.gameObject.name);
+        Note n = collision.gameObject.GetComponent<Note>();
+        if (n.noteType != Note.NoteType.NotSet) 
+        { 
+            main.BufferNote(collision.gameObject.GetComponent<Note>());
+        }
     }
 }
