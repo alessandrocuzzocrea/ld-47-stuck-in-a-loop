@@ -6,6 +6,7 @@ using UnityEngine;
 public class Main : MonoBehaviour
 {
     public Player player;
+    public Goal goal;
 
     public float levelCurrentTimestamp;
     public float levelDuration;
@@ -40,31 +41,43 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelCurrentTimestamp = 0.0f;
-        //levelDuration = 64.0f;
-        levelDuration = 8.0f;
-        pixelToSecondsRate = levelDuration * 4.0f;
-        levelBeatsCount = levelDuration * pixelToSecondsRate / tileSize;
-        currentBeat = 0;
-        currentBeatTotal = 0;
-        loopDuration = 4;
-
-        initialBarPosition = bar.transform.position;
-
-        currentInstrument = buffered1 = buffered2 = buffered3 = buffered4 = Note.NoteType.NotSet;
-
         currentLevelGameObject = GameObject.Find("Level");
         if (currentLevelGameObject == null)
         {
             currentLevelGameObject = Instantiate(levels[currentLevel]) as GameObject;
         }
 
-        SetupLevel(currentLevelGameObject);
+        SetupLevel(currentLevelGameObject.GetComponent<Level>());
+
+        //levelCurrentTimestamp = 0.0f;
+        ////levelDuration = 64.0f;
+        //levelDuration = 8.0f;
+        //pixelToSecondsRate = levelDuration * 4.0f;
+        //levelBeatsCount = levelDuration * pixelToSecondsRate / tileSize;
+        //currentBeat = 0;
+        //currentBeatTotal = 0;
+        //loopDuration = 4;
+
+        initialBarPosition = bar.transform.position;
+
+        currentInstrument = buffered1 = buffered2 = buffered3 = buffered4 = Note.NoteType.NotSet;
+
+        
     }
 
-    void SetupLevel(GameObject l)
+    void SetupLevel(Level l)
     {
+        levelCurrentTimestamp = 0.0f;
+        //levelDuration = 64.0f;
+        levelDuration = l.levelDuration;
+        loopDuration = l.loopDuration;
+        pixelToSecondsRate = levelDuration * 4.0f;
+        levelBeatsCount = levelDuration * pixelToSecondsRate / tileSize;
+        currentBeat = 0;
+        currentBeatTotal = 0;
 
+        player.GetComponent<RememberMe>().posSaved = l.playerInitialPosition.position;
+        goal.transform.position = l.goalInitialPosition.position;
     }
 
     void ChangeLevel(int levelNo)
@@ -104,6 +117,11 @@ public class Main : MonoBehaviour
 
             if (hit)
             {
+                if (hit.collider.tag == "BlockUI")
+                {
+                    return;
+                }
+
                 if (hit.collider.GetComponent<InstrumentButton>())
                 {
                     InstrumentButton i = hit.collider.GetComponent<InstrumentButton>();

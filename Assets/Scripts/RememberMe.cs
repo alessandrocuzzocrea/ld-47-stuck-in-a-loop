@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RememberMe : MonoBehaviour
 {
-    Vector2 posSaved;
+    public Vector2 posSaved;
     // Start is called before the first frame update
     void Start()
     {
