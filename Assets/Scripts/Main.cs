@@ -161,7 +161,7 @@ public class Main : MonoBehaviour
         if (levelCurrentTimestamp >= levelDuration)
         {
             levelCurrentTimestamp = 0.0f;
-            player.Reset();
+            //player.Reset();
         }
 
         currentBeat = Convert.ToInt32(levelCurrentTimestamp * pixelToSecondsRate / tileSize) % loopDuration;

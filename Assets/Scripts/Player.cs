@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
     public bool isWalking;
     public bool isRunning;
     public bool isJumping;
+    public bool isReverse;
 
     public int jumpFramesDuration;
     public int jumpFramesHalfPoint;
     public int jumpCurrentFrame = 0;
+
+    public Vector2 horizontalRayOffset;
+    public float horizontalRayLength;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +36,18 @@ public class Player : MonoBehaviour
         float speed = isJumping ? 1.0f : 1.0f;
         float walkingPace = Time.deltaTime * Main.pixelToSecondsRate * speed;
         float rayLength = 1f;
-        
+
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLength, 1 << LayerMask.NameToLayer("Ground"));
+        RaycastHit2D hit2 = Physics2D.Raycast((Vector2)transform.position + horizontalRayOffset, isReverse ? Vector2.left : Vector2.right, horizontalRayLength, 1 << LayerMask.NameToLayer("Wall"));
+
+        if (hit2.collider != null)
+        {
+            isReverse = !isReverse;
+            transform.localScale = isReverse ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+            horizontalRayOffset.x *= -1;
+        }
+
 
         if (hit.collider != null && isJumping == false)
         {
@@ -50,14 +63,8 @@ public class Player : MonoBehaviour
 
         if (isWalking)
         {
-            if (isJumping)
-            {
-                distanceToTranslate += Vector2.right * walkingPace;
-            }
-            else
-            {
-                distanceToTranslate += Vector2.right * walkingPace;
-            }
+            distanceToTranslate += Vector2.right * walkingPace * (isReverse ? -1 : 1);
+            
         }
         if (isJumping)
         {
@@ -90,6 +97,7 @@ public class Player : MonoBehaviour
         transform.Translate(distanceToTranslate);
 
         Debug.DrawRay(transform.position, Vector2.down * rayLength, Color.red);
+        Debug.DrawRay(transform.position + (Vector3) horizontalRayOffset, (isReverse ? Vector2.left : Vector2.right) * horizontalRayLength, Color.red);
     }
     public void Stop()
     {
@@ -123,6 +131,9 @@ public class Player : MonoBehaviour
 
     public void Reset()
     {
-            GetComponent<RememberMe>().PleaseRememberMe();
+        GetComponent<RememberMe>().PleaseRememberMe();
+        isRunning = isWalking = isReverse = isJumping = false;
+        horizontalRayOffset.x = Mathf.Abs(horizontalRayOffset.x);
+        transform.localScale = new Vector3(1, 1, 1);
     }
 }
