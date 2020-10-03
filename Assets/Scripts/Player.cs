@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
             transform.Translate(Vector2.up * -1);
         }
 
+        transform.Translate(Vector2.right);
+
         Debug.DrawRay(transform.position, Vector2.down * rayLength, Color.red);
     }
 }
