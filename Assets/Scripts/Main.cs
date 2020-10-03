@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,10 @@ public class Main : MonoBehaviour
     public float levelCurrentTimestamp;
     public float levelDuration;
     public float levelBeatsCount;
+    public int currentBeat;
+    public int loopAfterBeat;
 
-    public static float pixelToSecondsRate = 32.0f;
+    public static float pixelToSecondsRate;
 
     // Bar
     public Bar bar;
@@ -27,6 +30,7 @@ public class Main : MonoBehaviour
     public Note.NoteType currentInstrument;
 
     // Levels
+    public float tileSize = 16.0f;
     public GameObject[] levels;
     public int currentLevel;
 
@@ -36,7 +40,10 @@ public class Main : MonoBehaviour
         levelCurrentTimestamp = 0.0f;
         //levelDuration = 64.0f;
         levelDuration = 8.0f;
-        levelBeatsCount = levelDuration;
+        pixelToSecondsRate = levelDuration * 4.0f;
+        levelBeatsCount = levelDuration * pixelToSecondsRate / tileSize;
+        currentBeat = 0;
+        loopAfterBeat = 4;
 
         initialBarPosition = bar.transform.position;
 
@@ -105,7 +112,10 @@ public class Main : MonoBehaviour
             levelCurrentTimestamp = 0.0f;
             player.GetComponent<RememberMe>().PleaseRememberMe();
         }
-        bar.transform.position = initialBarPosition + new Vector2(levelCurrentTimestamp * pixelToSecondsRate, 0);
+
+        currentBeat = Convert.ToInt32(levelCurrentTimestamp * pixelToSecondsRate / tileSize) % loopAfterBeat;
+        bar.transform.position = initialBarPosition + new Vector2((levelCurrentTimestamp * pixelToSecondsRate) % (loopAfterBeat * tileSize), 0);
+
     }
 
     private void HandleNote(Note.NoteType note)
