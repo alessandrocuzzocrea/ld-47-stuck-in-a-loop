@@ -262,7 +262,6 @@ MonoBehaviour:
   levelCurrentTimestamp: 0
   levelDuration: 0
   levelBeatsCount: 0
-  pixelToSecondsRate: 16
   bar: {fileID: 806002451}
   initialBarPosition: {x: 0, y: 0}
   buffered1: 0
@@ -1904,7 +1903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1720988453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2327,7 +2326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000552426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -232, y: -116, z: 0}
+  m_LocalPosition: {x: -248, y: -116, z: 0}
   m_LocalScale: {x: 16, y: 16, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

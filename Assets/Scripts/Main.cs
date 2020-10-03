@@ -10,7 +10,7 @@ public class Main : MonoBehaviour
     public float levelDuration;
     public float levelBeatsCount;
 
-    public float pixelToSecondsRate = 16.0f;
+    public static float pixelToSecondsRate = 32.0f;
 
     // Bar
     public Bar bar;

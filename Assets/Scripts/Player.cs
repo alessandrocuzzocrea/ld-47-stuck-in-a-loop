@@ -21,7 +21,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        float walkingPace = Time.deltaTime * Main.pixelToSecondsRate;
         float rayLength = 1f;
+        
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLength, 1 << LayerMask.NameToLayer("Ground"));
 
@@ -35,7 +37,7 @@ public class Player : MonoBehaviour
             transform.Translate(Vector2.up * -1);
         }
 
-        if (isWalking) transform.Translate(Vector2.right);
+        if (isWalking) transform.Translate(Vector2.right * walkingPace);
 
         Debug.DrawRay(transform.position, Vector2.down * rayLength, Color.red);
     }
