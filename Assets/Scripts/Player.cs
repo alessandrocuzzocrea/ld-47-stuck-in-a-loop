@@ -120,4 +120,9 @@ public class Player : MonoBehaviour
             main.GoalReached();
         }
     }
+
+    public void Reset()
+    {
+            GetComponent<RememberMe>().PleaseRememberMe();
+    }
 }

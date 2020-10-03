@@ -17,6 +17,7 @@ public class Main : MonoBehaviour
     public static float pixelToSecondsRate;
 
     // Bar
+    public PianoRoll pianoRoll;
     public Bar bar;
     public Vector2 initialBarPosition;
 
@@ -34,6 +35,7 @@ public class Main : MonoBehaviour
     public float tileSize = 16.0f;
     public GameObject[] levels;
     public int currentLevel;
+    public GameObject currentLevelGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -51,18 +53,45 @@ public class Main : MonoBehaviour
 
         currentInstrument = buffered1 = buffered2 = buffered3 = buffered4 = Note.NoteType.NotSet;
 
-        GameObject level = GameObject.Find("Level");
-        if (level == null)
+        currentLevelGameObject = GameObject.Find("Level");
+        if (currentLevelGameObject == null)
         {
-            level = Instantiate(levels[0]) as GameObject;
+            currentLevelGameObject = Instantiate(levels[currentLevel]) as GameObject;
         }
 
-        SetupLevel(level);
+        SetupLevel(currentLevelGameObject);
     }
 
     void SetupLevel(GameObject l)
     {
 
+    }
+
+    void ChangeLevel(int levelNo)
+    {
+        Destroy(currentLevelGameObject);
+        currentLevelGameObject = null;
+        if (currentLevelGameObject == null)
+        {
+            currentLevelGameObject = Instantiate(levels[currentLevel]) as GameObject;
+        }
+
+        ResetMain();
+    }
+
+    void ResetMain() 
+    {
+        levelEnded = false;
+        player.Reset();
+        pianoRoll.Reset();
+
+        levelCurrentTimestamp = 0.0f;
+        levelDuration = 8.0f;
+        pixelToSecondsRate = levelDuration * 4.0f;
+        levelBeatsCount = levelDuration * pixelToSecondsRate / tileSize;
+        currentBeat = 0;
+        currentBeatTotal = 0;
+        loopDuration = 4;
     }
 
     // Update is called once per frame
@@ -95,6 +124,8 @@ public class Main : MonoBehaviour
         if (levelEnded)
         {
             player.Stop();
+            currentLevel = (currentLevel + 1) % levels.Length;
+            ChangeLevel(currentLevel);
             return;
         }
 
@@ -112,7 +143,7 @@ public class Main : MonoBehaviour
         if (levelCurrentTimestamp >= levelDuration)
         {
             levelCurrentTimestamp = 0.0f;
-            player.GetComponent<RememberMe>().PleaseRememberMe();
+            player.Reset();
         }
 
         currentBeat = Convert.ToInt32(levelCurrentTimestamp * pixelToSecondsRate / tileSize) % loopDuration;

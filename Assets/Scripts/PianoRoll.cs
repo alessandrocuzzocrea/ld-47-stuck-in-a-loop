@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PianoRoll : MonoBehaviour
 {
-    public GameObject notePrefab;
+    //public GameObject notePrefab;
+    public Note[] notes;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +17,18 @@ public class PianoRoll : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Reset()
+    {
+        foreach (Note n in notes)
+        {
+            //Transform noteTransform = transform.GetChild(i);
+            //if (transform.GetComponent<Note>())
+            //{
+                //Note n = transform.GetComponent<Note>();
+                n.setNoteType(Note.NoteType.NotSet);
+            //}
+        }
     }
 }
