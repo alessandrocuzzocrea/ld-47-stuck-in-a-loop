@@ -10,6 +10,8 @@ public class Note : MonoBehaviour
     public Sprite walkSprite;
     public Sprite runSprite;
     public Sprite jumpSprite;
+    public Sprite reverseSprite;
+
     public enum NoteType
     {
         NotSet,
@@ -17,9 +19,11 @@ public class Note : MonoBehaviour
         Walk,
         Run,
         Jump,
+        Reverse,
     }
 
     public NoteType noteType;
+    public NoteType noteTypeDefault;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +41,7 @@ public class Note : MonoBehaviour
     {
         noteType = nt;
 
-        switch (nt)
+        switch (noteType)
         {
             case NoteType.NotSet:
                 spriteRenderer.sprite = null;
@@ -57,6 +61,10 @@ public class Note : MonoBehaviour
                 break;
             case NoteType.Jump:
                 spriteRenderer.sprite = jumpSprite;
+                spriteRenderer.enabled = true;
+                break;
+            case NoteType.Reverse:
+                spriteRenderer.sprite = reverseSprite;
                 spriteRenderer.enabled = true;
                 break;
             default:

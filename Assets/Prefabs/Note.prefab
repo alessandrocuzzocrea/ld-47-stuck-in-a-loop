@@ -126,4 +126,5 @@ MonoBehaviour:
   walkSprite: {fileID: 21300000, guid: d12240168c06aca47a18d940d8f8f399, type: 3}
   runSprite: {fileID: 21300000, guid: f4b16d0adb96a22499a5bebaef8191f6, type: 3}
   jumpSprite: {fileID: 21300000, guid: 8376098fd41ee8c49b021e13e73fe001, type: 3}
+  reverseSprite: {fileID: 21300000, guid: cf8a6879fc5ced444a41cef7383df222, type: 3}
   noteType: 0

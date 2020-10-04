@@ -131,7 +131,22 @@ public class Main : MonoBehaviour
                 if (hit.collider.GetComponent<Note>())
                 {
                     Note n = hit.collider.GetComponent<Note>();
-                    n.setNoteType(currentInstrument);
+                    n.setNoteType(n.noteTypeDefault);
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero);
+
+            if (hit)
+            {
+                if (hit.collider.GetComponent<Note>())
+                {
+                    Note n = hit.collider.GetComponent<Note>();
+                    n.setNoteType(Note.NoteType.NotSet);
                 }
             }
         }
@@ -190,6 +205,11 @@ public class Main : MonoBehaviour
         if (note == Note.NoteType.Jump)
         {
             player.Jump();
+        }
+
+        if (note == Note.NoteType.Reverse)
+        {
+            player.Reverse();
         }
     }
 

@@ -149,4 +149,11 @@ public class Player : MonoBehaviour
         horizontalRayOffset.x = Mathf.Abs(horizontalRayOffset.x);
         transform.localScale = new Vector3(1, 1, 1);
     }
+
+    public void Reverse()
+    {
+        isReverse = !isReverse;
+        transform.localScale = isReverse ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+        horizontalRayOffset.x *= -1;
+    }
 }
