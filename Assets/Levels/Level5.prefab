@@ -8078,7 +8078,7 @@ MonoBehaviour:
   playerInitialPosition: {fileID: 5426334548411066797}
   goalInitialPosition: {fileID: 1542136999832466350}
   levelDuration: 8
-  loopDuration: 4
+  loopDuration: 8
 --- !u!1 &6454205549605673943
 GameObject:
   m_ObjectHideFlags: 0

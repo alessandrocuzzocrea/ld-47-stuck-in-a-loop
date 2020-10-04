@@ -51,6 +51,12 @@ public class Main : MonoBehaviour
     public Text coinsLabel;
     public Text measuresLabel;
 
+    // Piano Roll
+    public GameObject pianoRollStage0;
+    public GameObject pianoRollStage1;
+    public GameObject pianoRollStage2;
+    public GameObject pianoRollStage3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +102,8 @@ public class Main : MonoBehaviour
 
         //coins
         currentLevelCoins = 0;
+
+        ConfigurePianoRoll();
     }
 
     void ChangeLevel(int levelNo)
@@ -125,6 +133,31 @@ public class Main : MonoBehaviour
         //loopDuration = 4;
 
         SetupLevel(currentLevelGameObject.GetComponent<Level>());
+    }
+
+    public void ConfigurePianoRoll()
+    {
+        pianoRollStage0.SetActive(false);
+        pianoRollStage1.SetActive(false);
+        pianoRollStage2.SetActive(false);
+        pianoRollStage3.SetActive(false);
+
+        if (currentLevel == 0)
+        {
+            pianoRollStage0.SetActive(true);
+        } 
+        else if (currentLevel >= 1 && currentLevel <= 3 )
+        {
+            pianoRollStage1.SetActive(true);
+        }
+        else if (currentLevel >= 4 && currentLevel <= 7)
+        {
+            pianoRollStage2.SetActive(true);
+        }
+        else if (currentLevel >= 8 && currentLevel <= 11)
+        {
+            pianoRollStage3.SetActive(true);
+        }
     }
 
     // Update is called once per frame
