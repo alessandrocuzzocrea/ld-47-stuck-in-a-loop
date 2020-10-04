@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
@@ -42,6 +45,11 @@ public class Main : MonoBehaviour
     //Coins
     public int currentLevelCoins;
     public int[] coins;
+
+    // UI 2
+    public Text timeLabel;
+    public Text coinsLabel;
+    public Text measuresLabel;
 
     // Start is called before the first frame update
     void Start()
@@ -196,6 +204,17 @@ public class Main : MonoBehaviour
         currentBeatTotal = Convert.ToInt32(levelCurrentTimestamp * pixelToSecondsRate / tileSize);
         bar.transform.position = initialBarPosition + new Vector2((levelCurrentTimestamp * pixelToSecondsRate) % (loopDuration * tileSize), 0);
 
+        // Update UI
+        int intTime = (int) totalTimestamp;
+        int minutes = intTime / 60;
+        int seconds = intTime % 60;
+        float millis = (totalTimestamp * 1000 + UnityEngine.Random.Range(0, 10)) % 999;
+        string timeText = String.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, millis);
+        timeLabel.text = timeText;
+
+        coinsLabel.text = $"{coins.Sum()}/36";
+
+        measuresLabel.text = $"{currentBeat + 1}/{loopDuration}";
     }
 
     public void AddCoin()
