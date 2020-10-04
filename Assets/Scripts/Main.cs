@@ -38,6 +38,10 @@ public class Main : MonoBehaviour
     public int currentLevel;
     public GameObject currentLevelGameObject;
 
+    //Coins
+    public int currentLevelCoins;
+    public int[] coins;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +66,8 @@ public class Main : MonoBehaviour
 
         currentInstrument = buffered1 = buffered2 = buffered3 = buffered4 = Note.NoteType.NotSet;
 
-        
+        // Coins
+        coins = new int[levels.Length];
     }
 
     void SetupLevel(Level l)
@@ -77,7 +82,11 @@ public class Main : MonoBehaviour
         currentBeatTotal = 0;
 
         player.GetComponent<RememberMe>().posSaved = l.playerInitialPosition.position;
+        player.transform.position = l.playerInitialPosition.position;
         goal.transform.position = l.goalInitialPosition.position;
+
+        //coins
+        currentLevelCoins = 0;
     }
 
     void ChangeLevel(int levelNo)
@@ -183,6 +192,12 @@ public class Main : MonoBehaviour
         currentBeatTotal = Convert.ToInt32(levelCurrentTimestamp * pixelToSecondsRate / tileSize);
         bar.transform.position = initialBarPosition + new Vector2((levelCurrentTimestamp * pixelToSecondsRate) % (loopDuration * tileSize), 0);
 
+    }
+
+    public void AddCoin()
+    {
+        currentLevelCoins++;
+        coins[currentLevel] = currentLevelCoins;
     }
 
     private void HandleNote(Note.NoteType note)

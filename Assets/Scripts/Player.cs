@@ -42,12 +42,17 @@ public class Player : MonoBehaviour
         RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, rayLength, 1 << LayerMask.NameToLayer("Ground"));
         RaycastHit2D hitHorizontal = Physics2D.Raycast((Vector2)transform.position + horizontalRayOffset, isReverse ? Vector2.left : Vector2.right, horizontalRayLength, 1 << LayerMask.NameToLayer("Wall"));
         RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, verticalRayLength, 1 << LayerMask.NameToLayer("Ceiling"));
-        RaycastHit2D hitDown2 = Physics2D.Raycast(transform.position, Vector2.up, rayLength, 1 << LayerMask.NameToLayer("Dead"));
+        RaycastHit2D hitDown2 = Physics2D.Raycast((Vector2)transform.position + Vector2.up * 48.0f, Vector2.up, rayLength, 1 << LayerMask.NameToLayer("Death"));
 
         if (hitUp.collider != null)
         {
             //Debug.Log("Ceiling");
-            //Debug.Break();
+        }
+
+        if (hitDown2.collider != null)
+        {
+            Debug.Log("Death");
+            Reset();
         }
 
         bool isHittingCeiling = hitUp.collider != null;
@@ -139,6 +144,13 @@ public class Player : MonoBehaviour
         if (collision.gameObject.GetComponent<Goal>() != null)
         {
             main.GoalReached();
+        }
+
+        if (collision.gameObject.GetComponent<Coin>() != null)
+        {
+
+            Destroy(collision.gameObject);
+            main.AddCoin();
         }
     }
 

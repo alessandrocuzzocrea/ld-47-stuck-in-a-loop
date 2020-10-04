@@ -37,5 +37,6 @@ public class DebugScript : MonoBehaviour
         GUI.Label(new Rect(150, 40, 400, 20), "BeatCount: " + main.levelBeatsCount);
         GUI.Label(new Rect(150, 50, 400, 20), "currentBeat: " + main.currentBeat + " / " + main.loopDuration);
         GUI.Label(new Rect(150, 60, 400, 20), "currentBeatTotal: " + main.currentBeatTotal + " / " + main.levelBeatsCount);
+        GUI.Label(new Rect(150, 70, 400, 20), "currentLevelCoins: " + main.currentLevelCoins);
     }
 }
