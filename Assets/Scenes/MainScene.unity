@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 16878616}
   - component: {fileID: 16878615}
   m_Layer: 5
-  m_Name: Thanks
+  m_Name: ThanksEnding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   coinSfx: {fileID: 1509479367}
   deadSfx: {fileID: 1987808881}
   goalSfx: {fileID: 102499833}
-  ending: {fileID: 0}
+  ending: {fileID: 2139600586}
 --- !u!4 &167121392
 Transform:
   m_ObjectHideFlags: 0
@@ -5530,7 +5530,7 @@ GameObject:
   - component: {fileID: 780140043}
   - component: {fileID: 780140042}
   m_Layer: 5
-  m_Name: Skipped
+  m_Name: SkippedEnding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8772,7 +8772,7 @@ GameObject:
   - component: {fileID: 1359326590}
   - component: {fileID: 1359326589}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonEnding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8840,7 +8840,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1359326590}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2139600586}
+        m_MethodName: TryAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1359326590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11906,7 +11917,7 @@ GameObject:
   - component: {fileID: 1831145121}
   - component: {fileID: 1831145120}
   m_Layer: 5
-  m_Name: Time
+  m_Name: TimeEnding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14088,7 +14099,7 @@ GameObject:
   - component: {fileID: 2117817536}
   - component: {fileID: 2117817535}
   m_Layer: 5
-  m_Name: Coins
+  m_Name: CoinsEnding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14397,7 +14408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f56a42cb9a116e49953542d30b8b28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiENDING: {fileID: 0}
+  uiENDING: {fileID: 558760297}
+  timeText: {fileID: 1831145120}
+  coinsText: {fileID: 2117817535}
+  levelSkippedText: {fileID: 780140042}
 --- !u!4 &2139600587
 Transform:
   m_ObjectHideFlags: 0

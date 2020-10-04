@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Player collision with: " + collision.gameObject.gameObject.name);
+        //Debug.Log("Player collision with: " + collision.gameObject.gameObject.name);
         //main.BufferNote(collision.gameObject.GetComponent<Note>());
         if (collision.gameObject.GetComponent<Goal>() != null)
         {

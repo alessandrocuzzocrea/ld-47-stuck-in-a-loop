@@ -247,6 +247,7 @@ public class Main : MonoBehaviour
                 //PersistentData p = GameObject.Find("PersistentData").GetComponent<PersistentData>();
                 //p.totalTimestamp = totalTimestamp;
                 //p.coins = coins.Sum();
+                ending.gameObject.SetActive(true);
                 ending.RollEnding(timeLabel.text, levelSkipped, coins.Sum());
                 return;
             }
