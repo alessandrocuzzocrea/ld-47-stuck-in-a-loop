@@ -107,13 +107,15 @@ public class Main : MonoBehaviour
         player.Reset();
         pianoRoll.Reset();
 
-        levelCurrentTimestamp = 0.0f;
-        levelDuration = 8.0f;
-        pixelToSecondsRate = levelDuration * 4.0f;
-        levelBeatsCount = levelDuration * pixelToSecondsRate / tileSize;
-        currentBeat = 0;
-        currentBeatTotal = 0;
-        loopDuration = 4;
+        //levelCurrentTimestamp = 0.0f;
+        //levelDuration = 8.0f;
+        //pixelToSecondsRate = levelDuration * 4.0f;
+        //levelBeatsCount = levelDuration * pixelToSecondsRate / tileSize;
+        //currentBeat = 0;
+        //currentBeatTotal = 0;
+        //loopDuration = 4;
+
+        SetupLevel(currentLevelGameObject.GetComponent<Level>());
     }
 
     // Update is called once per frame
