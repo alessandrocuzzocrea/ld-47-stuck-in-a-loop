@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public float horizontalRayLength;
     public float verticalRayLength;
 
-    public AudioSource jumpSound;
+    //public AudioSource jumpSound;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Death");
             Reset();
+            main.PlayDeadSFX();
         }
 
         bool isHittingCeiling = hitUp.collider != null;
@@ -137,7 +138,7 @@ public class Player : MonoBehaviour
     public void Jump()
     {
         isJumping = true;
-        jumpSound.Play();
+        //jumpSound.Play();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

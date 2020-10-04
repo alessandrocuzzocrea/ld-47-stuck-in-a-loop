@@ -61,7 +61,10 @@ public class Main : MonoBehaviour
     public Tutorial tut;
 
     // Audio
-    public AudioClip jumpSfx;
+    public SoundFX jumpSfx;
+    public SoundFX coinSfx;
+    public SoundFX deadSfx;
+    public SoundFX goalSfx;
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +92,11 @@ public class Main : MonoBehaviour
 
         // Coins
         coins = new int[levels.Length];
+    }
+
+    public void PlayDeadSFX()
+    {
+        deadSfx.Play();
     }
 
     void SetupLevel(Level l)
@@ -272,6 +280,7 @@ public class Main : MonoBehaviour
     {
         currentLevelCoins++;
         coins[currentLevel] = currentLevelCoins;
+        coinSfx.Play();
     }
 
     private void HandleNote(Note.NoteType note)
@@ -293,10 +302,7 @@ public class Main : MonoBehaviour
 
         if (note == Note.NoteType.Jump)
         {
-            if (!GetComponent<AudioSource>().isPlaying)
-            {
-                GetComponent<AudioSource>().PlayOneShot(jumpSfx);
-            }
+            jumpSfx.Play();
             player.Jump();
         }
 
@@ -333,5 +339,6 @@ public class Main : MonoBehaviour
     public void GoalReached()
     {
         levelEnded = true;
+        goalSfx.Play();
     }
 }
