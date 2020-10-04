@@ -2521,7 +2521,7 @@ GameObject:
   - component: {fileID: 441767782}
   - component: {fileID: 441767784}
   m_Layer: 0
-  m_Name: instrument_buttons_stop
+  m_Name: instrument_buttons_skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2606,7 +2606,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 476928c9ac189ae42a4edc3dd0e789f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03a28787da960fc4fb00a9e0067a5105, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2982,7 +2982,7 @@ GameObject:
   - component: {fileID: 483503717}
   - component: {fileID: 483503719}
   m_Layer: 0
-  m_Name: instrument_buttons_walk
+  m_Name: instrument_buttons_ld_page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3067,7 +3067,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9e00c792ef941e48acb95c26e30f328, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23f8fdc82ade7ba4a919918d4219cf08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3287,7 +3287,7 @@ Transform:
   - {fileID: 1546067445}
   - {fileID: 50519395}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &506441205
 PrefabInstance:
@@ -5094,75 +5094,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19587cda0f3560b44a7dbbe98409abae, type: 3}
---- !u!1001 &865209706
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431152, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321204865732431153, guid: b7e5edb68e0044c4b951027fe183a79a,
-        type: 3}
-      propertyPath: m_Name
-      value: Level
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b7e5edb68e0044c4b951027fe183a79a, type: 3}
 --- !u!4 &886161873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3776280354660878859, guid: 19587cda0f3560b44a7dbbe98409abae,
@@ -7090,7 +7021,7 @@ GameObject:
   - component: {fileID: 1379980560}
   - component: {fileID: 1379980562}
   m_Layer: 0
-  m_Name: instrument_buttons_jump
+  m_Name: instrument_buttons_twitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7175,7 +7106,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 49987095e04642b47b650565fefca3e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1ab5816e68da8c47a6d7c6a63bbb80a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11378,7 +11309,7 @@ GameObject:
   - component: {fileID: 2136301833}
   - component: {fileID: 2136301832}
   m_Layer: 0
-  m_Name: instrument_buttons_clear
+  m_Name: instrument_buttons_reset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11476,7 +11407,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 476928c9ac189ae42a4edc3dd0e789f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7d01ed45fd3cdf4997cbbb1cee7fe01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

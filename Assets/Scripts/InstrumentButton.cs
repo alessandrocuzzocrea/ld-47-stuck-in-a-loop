@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InstrumentButton : MonoBehaviour
 {
@@ -29,5 +30,28 @@ public class InstrumentButton : MonoBehaviour
         //        //}
         //    }
         //}
+    }
+
+    public void Execute()
+    {
+        if (name == "instrument_buttons_reset")
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        if (name == "instrument_buttons_skip")
+        {
+            GameObject.Find("Main").GetComponent<Main>().GoalReached();
+        }
+
+        if (name == "instrument_buttons_ld_page")
+        {
+
+        }
+
+        if (name == "instrument_buttons_twitter")
+        {
+
+        }
     }
 }

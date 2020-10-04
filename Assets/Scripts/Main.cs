@@ -133,8 +133,8 @@ public class Main : MonoBehaviour
 
                 if (hit.collider.GetComponent<InstrumentButton>())
                 {
-                    InstrumentButton i = hit.collider.GetComponent<InstrumentButton>();
-                    currentInstrument = i.noteType;
+                    hit.collider.GetComponent<InstrumentButton>().Execute();
+                    //currentInstrument = i.noteType;
                 }
 
                 if (hit.collider.GetComponent<Note>())
