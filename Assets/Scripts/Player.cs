@@ -53,9 +53,9 @@ public class Player : MonoBehaviour
 
         if (hitDown2.collider != null)
         {
-            Debug.Log("Death");
-            Reset();
+            //Debug.Log("Death");
             main.PlayDeadSFX();
+            Reset();
         }
 
         bool isHittingCeiling = hitUp.collider != null;
