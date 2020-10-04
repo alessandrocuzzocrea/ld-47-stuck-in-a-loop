@@ -60,6 +60,9 @@ public class Main : MonoBehaviour
     // Tut
     public Tutorial tut;
 
+    // Audio
+    public AudioClip jumpSfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -290,6 +293,10 @@ public class Main : MonoBehaviour
 
         if (note == Note.NoteType.Jump)
         {
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().PlayOneShot(jumpSfx);
+            }
             player.Jump();
         }
 

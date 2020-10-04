@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public float horizontalRayLength;
     public float verticalRayLength;
 
+    public AudioSource jumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -135,6 +137,7 @@ public class Player : MonoBehaviour
     public void Jump()
     {
         isJumping = true;
+        jumpSound.Play();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
