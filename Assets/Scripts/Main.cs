@@ -8,6 +8,7 @@ public class Main : MonoBehaviour
     public Player player;
     public Goal goal;
 
+    public float totalTimestamp;
     public float levelCurrentTimestamp;
     public float levelDuration;
     public float levelBeatsCount;
@@ -174,6 +175,7 @@ public class Main : MonoBehaviour
         }
 
         // Advance time
+        totalTimestamp += Time.deltaTime;
         levelCurrentTimestamp += Time.deltaTime;
 
         // Handle notes
