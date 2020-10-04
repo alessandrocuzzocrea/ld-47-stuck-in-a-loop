@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
 
         RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, rayLength, 1 << LayerMask.NameToLayer("Ground"));
-        RaycastHit2D hitHorizontal = Physics2D.Raycast((Vector2)transform.position + horizontalRayOffset, isReverse ? Vector2.left : Vector2.right, horizontalRayLength, 1 << LayerMask.NameToLayer("Wall"));
+        RaycastHit2D hitHorizontal = Physics2D.Raycast((Vector2)transform.position + horizontalRayOffset, isReverse ? Vector2.left : Vector2.right, horizontalRayLength, 1 << LayerMask.NameToLayer("Wall") | 1 << LayerMask.NameToLayer("Ground"));
         RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, verticalRayLength, 1 << LayerMask.NameToLayer("Ceiling"));
         RaycastHit2D hitDown2 = Physics2D.Raycast((Vector2)transform.position + Vector2.up * 48.0f, Vector2.up, rayLength, 1 << LayerMask.NameToLayer("Death"));
 
