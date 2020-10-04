@@ -41,6 +41,7 @@ public class Main : MonoBehaviour
     public GameObject[] levels;
     public int currentLevel;
     public GameObject currentLevelGameObject;
+    public int levelSkipped;
 
     //Coins
     public int currentLevelCoins;
@@ -65,6 +66,9 @@ public class Main : MonoBehaviour
     public SoundFX coinSfx;
     public SoundFX deadSfx;
     public SoundFX goalSfx;
+
+    // Ending
+    public Ending ending;
 
     // Start is called before the first frame update
     void Start()
@@ -194,6 +198,7 @@ public class Main : MonoBehaviour
 
                 if (hit.collider.GetComponent<InstrumentButton>())
                 {
+                    if (hit.collider.name == "instrument_buttons_skip") levelSkipped++;
                     hit.collider.GetComponent<InstrumentButton>().Execute();
                     //currentInstrument = i.noteType;
                 }
@@ -236,7 +241,15 @@ public class Main : MonoBehaviour
         if (levelEnded)
         {
             player.Stop();
-            currentLevel = (currentLevel + 1) % levels.Length;
+            currentLevel += 1;
+            if (currentLevel >= levels.Length)
+            {
+                //PersistentData p = GameObject.Find("PersistentData").GetComponent<PersistentData>();
+                //p.totalTimestamp = totalTimestamp;
+                //p.coins = coins.Sum();
+                ending.RollEnding(timeLabel.text, levelSkipped, coins.Sum());
+                return;
+            }
             ChangeLevel(currentLevel);
             return;
         }

@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PersistentData : MonoBehaviour
+public class Ending : MonoBehaviour
 {
-    public int coins;
-    public float totalTimestamp;
+    public GameObject uiENDING;
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);
+        
     }
 
     // Update is called once per frame
@@ -18,4 +17,9 @@ public class PersistentData : MonoBehaviour
     {
         
     }
+
+    public void RollEnding(string time, int levelSkipped, int coins)
+    {
+        uiENDING.SetActive(true);
+    }    
 }
