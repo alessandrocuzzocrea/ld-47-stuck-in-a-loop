@@ -57,6 +57,9 @@ public class Main : MonoBehaviour
     public GameObject pianoRollStage2;
     public GameObject pianoRollStage3;
 
+    // Tut
+    public Tutorial tut;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -142,10 +145,13 @@ public class Main : MonoBehaviour
         pianoRollStage2.SetActive(false);
         pianoRollStage3.SetActive(false);
 
+        tut.gameObject.SetActive(false);
+
         if (currentLevel == 0)
         {
             pianoRollStage0.SetActive(true);
-        } 
+            tut.gameObject.SetActive(true);
+        }
         else if (currentLevel >= 1 && currentLevel <= 3 )
         {
             pianoRollStage1.SetActive(true);
@@ -199,14 +205,16 @@ public class Main : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero);
-
-            if (hit)
+            RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(mousePosition), Vector2.zero);
+            foreach (RaycastHit2D hit in hits)
             {
-                if (hit.collider.GetComponent<Note>())
+                if (hit)
                 {
-                    Note n = hit.collider.GetComponent<Note>();
-                    n.setNoteType(Note.NoteType.NotSet);
+                    if (hit.collider.GetComponent<Note>())
+                    {
+                        Note n = hit.collider.GetComponent<Note>();
+                        n.setNoteType(Note.NoteType.NotSet);
+                    }
                 }
             }
         }
