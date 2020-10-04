@@ -1018,6 +1018,8 @@ MonoBehaviour:
   - {fileID: 6321204865732431153, guid: cc6f4e76c2f895f44b08b0dc887f0362, type: 3}
   - {fileID: 6321204865732431153, guid: 6548f521d968eca4ebb492fcc4e403eb, type: 3}
   - {fileID: 6321204865732431153, guid: 3aca31952695ea641a6e0e93240b4c9c, type: 3}
+  - {fileID: 6321204865732431153, guid: d61e38d5e27f51b43b05e82c4eb76712, type: 3}
+  - {fileID: 6321204865732431153, guid: a2ea2e7941cf2264c9c92028492ec666, type: 3}
   currentLevel: 0
   currentLevelGameObject: {fileID: 0}
   currentLevelCoins: 0
