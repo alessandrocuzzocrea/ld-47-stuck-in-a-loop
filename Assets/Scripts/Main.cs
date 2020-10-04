@@ -184,7 +184,14 @@ public class Main : MonoBehaviour
                 if (hit.collider.GetComponent<Note>())
                 {
                     Note n = hit.collider.GetComponent<Note>();
-                    n.setNoteType(n.noteTypeDefault);
+                    if (n.noteType == Note.NoteType.NotSet)
+                    {
+                        n.setNoteType(n.noteTypeDefault);
+                    }
+                    else
+                    {
+                        n.setNoteType(Note.NoteType.NotSet);
+                    }
                 }
             }
         }
